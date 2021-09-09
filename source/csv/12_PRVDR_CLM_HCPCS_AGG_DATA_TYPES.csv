@@ -1,0 +1,9 @@
+Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
+CLM_RNDRG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific compress '',VARCHAR(10),,,,
+CLM_LINE_HCPCS_CD,char(5) character set latin not casespecific compress,CHAR(5),,,,
+HCPCS_CD_DESC,varchar(2000) character set latin not casespecific,VARCHAR(2000),,,,
+BENE_COUNT,integer,INTEGER,,,,
+NUM_SERVICES,float,FLOAT,,,,
+CLM_LINE_PRVDR_PMT_AMT_SUM,float,FLOAT,,,,
+AVG_PER_SRVC,float,FLOAT,,,,
+OPI_LOAD_TS,timestamp(6),TIMESTAMP(6),,,,

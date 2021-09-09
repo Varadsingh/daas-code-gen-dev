@@ -1,0 +1,97 @@
+<html>
+	
+	<head>
+		<title> Data SQL Generator </title>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+		
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+		<script defer src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+		
+		<script defer src="{{ url_for('static', filename='js/jquery-3.6.0.min.js') }}"></script>
+		
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/select2.min.css') }}">
+		<script defer src="{{ url_for('static', filename='js/select2.min.js') }}"></script>
+
+		{% block script_content %}
+		{% endblock %}
+		
+		<style>
+			html,body{
+				height:100%;
+				width:100%;
+			}
+
+			form, button {
+				margin-bottom: 20px;
+			}
+			
+			.container-column {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				margin: 2;
+				justify-content: flex-start;
+				align-items: stretch;
+				width: 100%;
+			}
+			.container-row {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				margin: 2;
+				justify-content: flex-start;
+				align-items: stretch;
+				width: 100%;
+			}
+			.item-col-grow {
+				flex-grow: 1;
+			}
+			.item-row-grow {
+				flex-grow: 1;
+				border-style: solid;
+				border-color: black;
+				border-width: thin;
+				border-radius: 5px;
+			}
+			.item-col {
+				margin: 2;
+				width: 175px;
+				border-style: solid;
+			}
+			.item-row {
+				margin: 2;
+				width: 175px;
+				border-style: solid;
+				border-color: black;
+				border-width: thin;
+				border-radius: 5px;
+			}
+			.item-row-code {
+				margin: 2;
+				width: 750px;
+				border-style: solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+
+		<div class="container-column m-2 bg-primary bg-gradient text-white">
+			<div class="container-row">
+				<h4> One PI DaaS API Data SQL Generator </h4>
+			</div>
+			<hr/>
+			<div class="container-row">
+				<a href="/" class="m-1 item-row btn btn-success"> home </a>
+				<a href="/single_run" class="m-1 item-row btn btn-danger"> single-run </a>
+				<a href="/sql_ops" class="m-1 item-row btn btn-success"> single-keys </a>
+				<a href="/batch_run" class="m-1 item-row btn btn-warning"> batch-run </a>
+			</div>
+		</div>
+		
+		{% block content %}
+		{% endblock %}
+			
+	</body>
+
+</html>

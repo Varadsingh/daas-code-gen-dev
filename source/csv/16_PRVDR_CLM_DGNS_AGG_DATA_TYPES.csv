@@ -1,0 +1,9 @@
+Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
+PRVDR_NPI_NUM,varchar(10) character set latin not casespecific,VARCHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,,,,
+CLM_PRNCPL_DGNS_CD,char(7) character set latin not casespecific,CHAR(7) CHARACTER SET LATIN NOT CASESPECIFIC,,,,
+DGNS_CD_DESC,varchar(2000) character set latin not casespecific,VARCHAR(2000) CHARACTER SET LATIN NOT CASESPECIFIC,,,,
+ BENE_CNT,integer,INTEGER,,,,
+SRVC_UNIT_QTY_SUM,"decimal(18,4)",FLOAT,,,,
+PRVDR_PMT_AMT_SUM,"decimal(18,2)",FLOAT,,,,
+PD_AMT_PER_SRVC_AVG,"decimal(18,4)",FLOAT,,,,
+OPI_LOAD_TS ,timestamp(6) not null,TIMESTAMP(6) NOT NULL,,,,

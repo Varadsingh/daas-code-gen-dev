@@ -1,0 +1,16 @@
+{
+  "name": "jdbc_source___TERA_VIEW_NAME_LOW__",
+  "config": {
+          "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+          "connection.url": "SED_TERADATA_CONNECTION_URL",
+          "table.types": "VIEW",
+          "topic.prefix": "CMS_BDM_VIEW_OPI_AAL-__TERA_VIEW_NAME__",
+          "mode": "bulk",
+          "timestamp.column.name" : "__KAFKA_TIMESTAMP__",
+          "query":"SELECT * FROM CMS_BDM_VIEW_OPI_AAL_SED_TERADATA_DB_ENV_SUFFIX.__TERA_VIEW_NAME__ SAMPLE SED_KAFKA_QUERY_ROWS;",
+          "poll.interval.ms" : 86400000,
+          "transforms":"createKey",
+          "transforms.createKey.type":"org.apache.kafka.connect.transforms.ValueToKey",
+          "transforms.createKey.fields":"__TERA_PRIMARY_KEYS__"
+  }
+}

@@ -1,0 +1,9 @@
+Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
+PRVDR_PRSCRBNG_PRVDR_NPI_NUM  ,char(10),CHAR(10),,,,
+CLM_LINE_NDC_CD,char(3),CHAR(11),,,,
+NDC_BRAND_NAME,varchar(30),VARCHAR(30),,,,
+NDC_CNT                       ,integer,INTEGER,,,,
+BENE_CNT                      ,integer,INTEGER,,,,
+CVRD_PD_AMT_SUM               ,"decimal(18,2)",FLOAT,,,,
+PD_AMT_PER_NDC_CNT_AVG        ,"decimal(18,2)",FLOAT,,,,
+OPI_LOAD_TS                   ,timestamp(6),TIMESTAMP(6),,,,

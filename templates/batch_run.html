@@ -1,0 +1,48 @@
+{% extends 'index.html' %} {% block script_content %}
+<script defer src="{{ url_for('static', filename='my_js/runFolder.js') }}"></script>
+{% endblock %} {% block content %}
+
+<div id="batch-run">
+    <div class="m-2 container-column bg-secondary bg-gradient border border-primary border-4 text-white">
+        <div class="container-row">
+
+            <label for="matip" class="item-row">Materialise IP:</label>
+            <input type="text" id="matip" name="matip" value="{{ context.matIP }}" class="item-row-grow">
+        </div>
+        <div class="container-row">
+            <label for="matport" class="item-row">Materialise Port:</label>
+            <input type="text" id="matport" name="matport" value="{{ context.matPort }}" class="item-row">
+            <label for="matdb" class="item-row">Materialise Database:</label>
+            <input type="text" id="matdb" name="matdb" value="{{ context.matDB }}" class="item-row">
+            <label for="matuser" class="item-row">Materialise Username:</label>
+            <input type="text" id="matuser" name="matuser" value="{{ context.matUser }}" class="item-row">
+            <label for="matpass" class="item-row">Materialise Password:</label>
+            <input type="password" id="matpass" name="matpass" value="{{ context.matPass }}" class="item-row">
+        </div>
+        <div class="container-row">
+            <label for="foldname" class="item-row">Source Folder:</label></td>
+            <input type="text" id="foldname" name="foldname" value="{{ context.source }}" class="item-row-grow">
+        </div>
+        <div class="container-row">
+            <label for="foldname" class="item-row">Bridge Floder:</label></td>
+            <input type="text" id="bridge" name="bridge" value="{{ context.bridge }}" class="item-row-grow">
+        </div>
+        <div class="container-row">
+            <label for="foldname" class="item-row">Kafka Folder:</label></td>
+            <input type="text" id="kafka" name="kafka" value="{{ context.kafka }}" class="item-row-grow">
+        </div>
+        <div class="container-row">
+            <label for="foldname" class="item-row">Materialize Folder:</label></td>
+            <input type="text" id="materialize" name="materialize" value="{{ context.materialize }}" class="item-row-grow">
+        </div>
+        <div class="container-row">
+            <label for="foldname" class="item-row">Materialize Folder:</label></td>
+            <input type="text" id="sandbox" name="sandbox" value="{{ context.sandbox }}" class="item-row-grow">
+        </div>
+        <div class="container-row">
+            <div class="btn btn-info item-row" id="upldBtn2">start</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

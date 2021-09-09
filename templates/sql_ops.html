@@ -1,0 +1,83 @@
+{% extends 'index.html' %} {% block script_content %}
+<script defer src="{{ url_for('static', filename='my_js/sql_ops.js') }}"></script>
+{% endblock %} {% block content %}
+
+<div id="loader">
+    <div class="m-2 row spinner-border"></div>Fetching Data...</div>
+
+<div class="m-2" id="sql_ops">
+
+    <div class="container-column bg-secondary bg-gradient border border-primary border-4 text-white">
+        <div class="container-row">
+            <label for="bridgeip" class="item-row">Bridge IP:</label>
+            <input type="text" id="bridgeip" name="bridgeip" value="{{ context.bridgeIP }}" class="item-row-grow">
+            <!-- <label for="bridgeip" class="item-row">Bridge IP:</label>
+				<input type="text" id="bridgeip" name="bridgeip" value="104.236.40.239" class="item-row-grow"> -->
+        </div>
+        <div class="container-row">
+            <label for="bridgeport" class="item-row">Bridge Port:</label>
+            <input type="text" id="bridgeport" name="bridgeport" value="{{ context.bridgePort }}" class="item-row">
+            <label for="bridgedb" class="item-row">Bridge Database:</label>
+            <input type="text" id="bridgedb" name="bridgedb" value="{{ context.bridgeDB }}" class="item-row">
+            <label for="bridgeuser" class="item-row">Bridge Username:</label>
+            <input type="text" id="bridgeuser" name="bridgeuser" value="{{ context.bridgeUser }}" class="item-row">
+            <label for="bridgepass" class="item-row">Bridge Password:</label>
+            <input type="password" id="bridgepass" name="bridgepass" value="{{ context.bridgePass }}" class="item-row">
+            <!-- <label for="bridgedb" class="item-row">Bridge Database:</label>
+				<input type="text" id="bridgedb" name="bridgedb" value="varad" class="item-row">
+				<label for="bridgeuser" class="item-row">Bridge Username:</label>
+				<input type="text" id="bridgeuser" name="bridgeuser" value="varad" class="item-row">
+				<label for="bridgepass" class="item-row">Bridge Password:</label>
+				<input type="password" id="bridgepass" name="bridgepass" value="Ganesh125" class="item-row"> -->
+        </div>
+    </div>
+
+    <div class="container-column bg-secondary bg-gradient border border-primary border-4 text-white">
+        <div class="container-row">
+            <div id="table_operations">
+                <label for="operation" class='item-row'>Choose Operation:</label>
+                <select name="operation" id="operation" class='item-row-grow'>
+						<option value="" default selected disabled class='item-row-grow'>Select your option</option>
+						<option value='create_primary_key'class='item-row-grow'> create a primary key </option>
+						<option value='create_foreign_key' class='item-row-grow'> create a foreign key </option>
+					</select>
+            </div>
+            <div id="op_type">
+            </div>
+        </div>
+
+        <div class="container-row">
+            <div id="table_names">
+                <label for="table" class='item-row' id="tablelabel">Choose A Table:</label>
+                <select name="table" id="table" class='item-row'>
+					</select>
+            </div>
+            <div id="table_columns_div">
+                <label for="table_columns" class='item-row' id="table_columnslabel">Choose Columns:</label>
+                <select name="table_columns" id="table_columns" class='item-row' style="width: 400px;">
+					</select>
+            </div>
+        </div>
+
+        <div class="container-row">
+            <div id="ref_table_names">
+                <label for="reftable" class='item-row' id="reftablelabel">Choose A Parent Table:</label>
+                <select name="reftable" id="reftable" class='item-row'>
+					</select>
+            </div>
+            <div id="ref_table_columns_div">
+                <label for="ref_table_columns" class='item-row' id="ref_table_columnslabel">Choose Columns:</label>
+                <select name="ref_table_columns" id="ref_table_columns" class='item-row' style="width: 400px;">
+					</select>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-column">
+        <div class="container-row" id="op_submit">
+            <div class="btn btn-danger item-row">submit</div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,6 @@
+Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
+CLM_BLG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific,VARCHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,,,,
+LOAD_DT,date format 'yyyy-mm-dd',CHAR(10) ,,,,
+CLM_SBMT_CHRG_AMT,"decimal(18,2)",FLOAT,,,,
+CLM_PRVDR_PMT_AMT,"decimal(18,2)",FLOAT,,,,
+OPI_LOAD_TS,timestamp(6),TIMESTAMP(6),,,,

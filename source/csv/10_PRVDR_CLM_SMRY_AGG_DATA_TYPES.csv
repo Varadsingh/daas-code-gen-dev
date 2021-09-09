@@ -1,0 +1,13 @@
+Column Name,Data Type in Teradata Base Tables,Data Type in Teradata API_PRVDR_PROFILE View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
+PRVDR_NPI_NUM,char(10) character set latin not casespecific,CHAR(10),,,,
+PRVDR_NAME,varchar(80) character set latin not casespecific,VARCHAR(80),,,,
+CLM_PD_STUS_CD,char(1) character set latin not casespecific,CHAR(1),,,,
+CLM_PD_STUS_CD_DESC,varchar(40) character set latin not casespecific,VARCHAR(40),,,,
+CLM_FROM_DT,date format 'yyyy-mm-dd',CHAR(10),,,,
+CLM_THRU_DT,date format 'yyyy-mm-dd',CHAR(10),,,,
+BENE_CNT,integer,INTEGER,,,,
+CLM_CNT,integer,INTEGER,,,,
+CLM_SRVC_UNIT_TOT_QTY,"decimal(18,4)",FLOAT,,,,
+CLM_SBMT_CHRG_TOT_AMT,"decimal(18,2)",FLOAT,,,,
+CLM_PMT_TOT_AMT,"decimal(18,2)",FLOAT,,,,
+OPI_LOAD_TS,timestamp(6) not null,TIMESTAMP(6) NOT NULL,,,,

@@ -1,0 +1,78 @@
+{% extends 'index.html' %} {% block script_content %}
+<script defer src="{{ url_for('static', filename='my_js/initial.js') }}"></script>
+<script defer src="{{ url_for('static', filename='my_js/upldFrm.js') }}"></script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/prism.css') }}">
+<script defer src="{{ url_for('static', filename='js/prism.js') }}"></script>
+
+<script>
+    function onChange1() {
+        const editable = document.getElementById("output1");
+        const dockerCompose = editable.innerText;
+        editable.innerHTML = '<code id="sql1" class="language-sql"></code>';
+        const sql1 = document.getElementById("sql1");
+        sql1.innerHTML = Prism.highlight(dockerCompose, Prism.languages.sql, "sql");
+    }
+</script>
+{% endblock %} {% block content %}
+
+<div id="single-run">
+
+    <div class="m-2 container-column bg-secondary bg-gradient border border-primary border-4 text-white">
+        <div class="container-row">
+            <label for="matip1" class="item-row">Materialise IP:</label>
+            <input type="text" id="matip1" name="matip1" value="{{ context.matIP }}" class="item-row-grow">
+        </div>
+        <div class="container-row">
+            <label for="matport1" class="item-row">Materialise Port:</label>
+            <input type="text" id="matport1" name="matport1" value="{{ context.matPort }}" class="item-row">
+            <label for="matdb1" class="item-row">Materialise Database:</label>
+            <input type="text" id="matdb1" name="matdb1" value="{{ context.matDB }}" class="item-row">
+            <label for="matuser1" class="item-row">Materialise Username:</label>
+            <input type="text" id="matuser1" name="matuser1" value="{{ context.matUser }}" class="item-row">
+            <label for="matpass1" class="item-row">Materialise Password:</label>
+            <input type="password" id="matpass1" name="matpass1" value="{{ context.matPass }}" class="item-row">
+        </div>
+        <div class="container-row">
+            <form id="upldFrm1"><input style="width: 400px;" class="item-row" type="file" name="file" id="file1" multiple/></form>
+        </div>
+        <div class="container-row">
+            <div class="btn btn-info item-row" id="upldBtn1">upload</div>
+        </div>
+
+
+        <div class="container-row">
+            <div class="item-row-grow bg-secondary bg-gradient text-white">
+                <div class="container-column">
+                    <h3> Convert To Materialise Server </h3>
+                    <div class="container-row">
+                        <button type="button" class="btn btn-info item-row" id="clearBtn1">clear result</button>
+                        <button type="button" class="btn btn-info item-row" id="copyBtn1">copy result</button>
+                    </div>
+                    <div class="container-row">
+                        <pre onPaste="setTimeout(function() {onChange1();}, 0)" id="output1" class="item-row-code" contenteditable>
+								<code class="language-sql"></code>
+							</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="item-row-grow bg-secondary bg-gradient text-white">
+                <div class="container-column">
+                    <h3> Convert To Bridge Database </h3>
+                    <div class="container-row">
+                        <button type="button" class="btn btn-info item-row" id="clearBtn2">clear result</button>
+                        <button type="button" class="btn btn-info item-row" id="copyBtn2">copy result</button>
+                    </div>
+                    <div class="container-row">
+                        <pre id="output2" class="item-row-code">
+								<code class="language-sql"></code>
+							</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
