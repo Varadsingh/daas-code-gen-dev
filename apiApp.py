@@ -284,6 +284,24 @@ def runOp():
     conn.close()
     return({'status':status})
     
+@app.route('/runStatus', methods=['POST'])
+def runStatus():
+    time.sleep(1)
+    print('checking status')
+    foldname = request.form['foldname']
+    main_dir = os.path.dirname(os.path.dirname(foldname))
+    
+    run_status_file = main_dir + '\\generated\\run_status.txt'
+    f = open(run_status_file, 'r')
+    run_status = f.read()
+    
+    run_status_file_len = main_dir + '\\generated\\run_status_len.txt'
+    f = open(run_status_file_len, 'r')
+    run_status_len = f.read()
+    
+    print(run_status)
+    return({'status': run_status,'status_count': run_status_len.replace('\n','')})
+    
 @app.route('/runFolder', methods=['POST'])
 def runFolder():
     st_time = str(datetime.datetime.now())
@@ -402,20 +420,52 @@ def runFolder():
         xl_files=glob.iglob(foldname + '/**/*.csv', recursive=True)
         x_files = []
         for file in xl_files:
-            x_files.append(file)            
+            x_files.append(file)
         
-        # try:
+        main_dir = os.path.dirname(os.path.dirname(foldname))
+        if not os.path.exists(main_dir + '\\generated\\'):
+            os.makedirs(main_dir + '\\generated\\')
+        
+        run_status_file = main_dir + '\\generated\\run_status.txt'
+        run_status_file_len = main_dir + '\\generated\\run_status_len.txt'
+        
+        f = open(run_status_file, 'w')
+        f.write(' -- files run status -- \n')
+        f.close()
+        
+        files_processed = 0
+        
         for x_file in x_files:
-            bridge_value = open("./templates/bridge_template.txt", "r")
-            kafka_value = open("./templates/kafka_template.txt", "r")
-            materialize_value = open("./templates/materialize_template.txt", "r")
-            result = convert(file=x_file,run=0,matip=matip,matport=matport,matuser=matuser,matpass=matpass,matdb=matdb,
-                                    foldname=foldname,bridge=bridge, materialize=materialize, kafka=kafka, sandbox=sandbox, 
-                                kafka_value=kafka_value.read(), materialize_value=materialize_value.read(), bridge_value=bridge_value.read())
-            kafka_value.close()
-            materialize_value.close()
-        # except Exception as e:
-        #     print("error in api app",str(e))
+        
+            files_processed = files_processed + 1
+            
+            try:
+                bridge_value = open("./templates/bridge_template.txt", "r")
+                kafka_value = open("./templates/kafka_template.txt", "r")
+                materialize_value = open("./templates/materialize_template.txt", "r")
+                result = convert(file=x_file,run=0,matip=matip,matport=matport,matuser=matuser,matpass=matpass,matdb=matdb,
+                                        foldname=foldname,bridge=bridge, materialize=materialize, kafka=kafka, sandbox=sandbox, 
+                                    kafka_value=kafka_value.read(), materialize_value=materialize_value.read(), bridge_value=bridge_value.read())
+                kafka_value.close()
+                materialize_value.close()
+                
+                f = open(run_status_file, 'a')
+                f.write(os.path.basename(x_file).upper() + ' completed\n')
+                f.close()
+                
+            except Exception as e:
+                print("error in api app",str(e))
+                
+                f = open(run_status_file, 'a')
+                f.write(os.path.basename(x_file).upper() + ' error ' + str(e) + '\n')
+                f.close()
+            
+            f_len = open(run_status_file_len, 'w')
+            f_len.write(str(files_processed) + "/" + str(len(x_files)) + '\n')
+            f_len.close()
+                
+        
+        
 
         
         return({'status':'Processing Completed'})

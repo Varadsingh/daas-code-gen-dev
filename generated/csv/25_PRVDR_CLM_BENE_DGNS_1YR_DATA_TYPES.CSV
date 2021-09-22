@@ -1,10 +1,10 @@
 Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
-CLM_RNDRG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific,VARCHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,string,String,varchar(10),
-BENE_SK,"decimal(18,0)",FLOAT,double,float,"decimal(18,0)",
-CLM_PRNCPL_DGNS_CD,char(7) not null character set latin not casespecific,CHAR(7) NOT NULL CHARACTER SET LATIN NOT CASESPECIFIC,string,String,char(7),
-DGNS_CD_DESC,varchar(2000) character set latin not casespecific,VARCHAR(2000) CHARACTER SET LATIN NOT CASESPECIFIC,string,String,varchar(2000),
-CLM_FROM_DT,date format 'yyyy-mm-dd',CHAR(10),string,Date,date,
-CLM_THRU_DT,date format 'yyyy-mm-dd',CHAR(10),string,Date,date,
-CLM_LINE_SRVC_UNIT_QTY_SUM,"decimal(18,4)",FLOAT,double,float,"decimal(18,4)",
-CLM_LINE_PRVDR_PMT_AMT_SUM,"decimal(18,2)",FLOAT,double,float,"decimal(18,2)",
-OPI_LOAD_TS,timestamp(6),TIMESTAMP(6) NOT NULL,"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,
+CLM_RNDRG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific,VARCHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,string,String,varchar(10),String
+BENE_SK,"decimal(18,0)",FLOAT,double,float,"decimal(18,0)",Float
+CLM_PRNCPL_DGNS_CD,char(7) not null character set latin not casespecific,CHAR(7) NOT NULL CHARACTER SET LATIN NOT CASESPECIFIC,string,String,char(7),String
+DGNS_CD_DESC,varchar(2000) character set latin not casespecific,VARCHAR(2000) CHARACTER SET LATIN NOT CASESPECIFIC,string,String,varchar(2000),String
+CLM_FROM_DT,date format 'yyyy-mm-dd',CHAR(10),string,Date,date,String
+CLM_THRU_DT,date format 'yyyy-mm-dd',CHAR(10),string,Date,date,String
+CLM_LINE_SRVC_UNIT_QTY_SUM,"decimal(18,4)",FLOAT,double,float,"decimal(18,4)",Float
+CLM_LINE_PRVDR_PMT_AMT_SUM,"decimal(18,2)",FLOAT,double,float,"decimal(18,2)",Float
+OPI_LOAD_TS,timestamp(6),TIMESTAMP(6) NOT NULL,"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,String

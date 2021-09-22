@@ -1,9 +1,9 @@
 Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
-CLM_RNDRG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific compress '',VARCHAR(10),string,String,varchar(10),
-CLM_LINE_HCPCS_CD,char(5) character set latin not casespecific compress,CHAR(5),string,String,char(5),
-HCPCS_CD_DESC,varchar(2000) character set latin not casespecific,VARCHAR(2000),string,String,varchar(2000),
-BENE_COUNT,integer,INTEGER,int32,float,int8,
-NUM_SERVICES,float,FLOAT,double,float,decimal,
-CLM_LINE_PRVDR_PMT_AMT_SUM,float,FLOAT,double,float,decimal,
-AVG_PER_SRVC,float,FLOAT,double,float,decimal,
-OPI_LOAD_TS,timestamp(6),TIMESTAMP(6),"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,
+CLM_RNDRG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific compress '',VARCHAR(10),string,String,varchar(10),String
+CLM_LINE_HCPCS_CD,char(5) character set latin not casespecific compress,CHAR(5),string,String,char(5),String
+HCPCS_CD_DESC,varchar(2000) character set latin not casespecific,VARCHAR(2000),string,String,varchar(2000),String
+BENE_COUNT,integer,INTEGER,int32,float,int8,Int
+NUM_SERVICES,float,FLOAT,double,float,decimal,Float
+CLM_LINE_PRVDR_PMT_AMT_SUM,float,FLOAT,double,float,decimal,Float
+AVG_PER_SRVC,float,FLOAT,double,float,decimal,Float
+OPI_LOAD_TS,timestamp(6),TIMESTAMP(6),"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,String

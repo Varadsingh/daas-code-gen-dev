@@ -108,6 +108,7 @@ def convert(**kwargs):
             source_df.iloc[i,3] = 'string'
             source_df.iloc[i,4] = 'String'
             source_df.iloc[i,5] = 'varchar' + data_size # CHG_20210902
+            source_df.iloc[i,6] = 'String'
             
             select_body = select_body + cast_prefix + col_name
             select_body = select_body + "' as "+ source_df.iloc[i,4] + ")"
@@ -119,6 +120,7 @@ def convert(**kwargs):
             source_df.iloc[i,3] = 'string'
             source_df.iloc[i,4] = 'String'
             source_df.iloc[i,5] = 'char' + data_size # CHG_20210902
+            source_df.iloc[i,6] = 'String'
             
             select_body = select_body + cast_prefix + col_name
             select_body = select_body + "' as "+ source_df.iloc[i,4] + ")"
@@ -130,6 +132,7 @@ def convert(**kwargs):
             source_df.iloc[i,3] = '"type": "int64", "name": "org.apache.kafka.connect.data.Timestamp"'
             source_df.iloc[i,4] = 'float'
             source_df.iloc[i,5] = 'timestamp' # CHG_20210902
+            source_df.iloc[i,6] = 'String'
             
             select_body = select_body + char_prefix + tz_prefix + ts_prefix + cast_prefix + col_name + "' as "+ source_df.iloc[i,4] + ")" + ts_postfix + tz_postfix + char_postfix
             
@@ -140,6 +143,7 @@ def convert(**kwargs):
             source_df.iloc[i,3] = 'string'
             source_df.iloc[i,4] = 'Date'
             source_df.iloc[i,5] = 'date' # CHG_20210902
+            source_df.iloc[i,6] = 'String'
             
             select_body = select_body + len_check_prefix + col_name + len_check_mid + cast_prefix + col_name
             select_body = select_body + "' as "+ source_df.iloc[i,4] + ")" + len_check_postfix
@@ -151,6 +155,7 @@ def convert(**kwargs):
             source_df.iloc[i,3] = 'int32'
             source_df.iloc[i,4] = 'float'
             source_df.iloc[i,5] = 'int8' # CHG_20210902
+            source_df.iloc[i,6] = 'Int'
             
             select_body = select_body + cast_prefix + col_name
             select_body = select_body + "' as "+ source_df.iloc[i,4] + ")"
@@ -162,6 +167,7 @@ def convert(**kwargs):
             source_df.iloc[i,3] = 'double'
             source_df.iloc[i,4] = 'float'
             source_df.iloc[i,5] = 'decimal' + data_size # CHG_20210902
+            source_df.iloc[i,6] = 'Float'
             
             select_body = select_body + cast_prefix + col_name
             select_body = select_body + "' as "+ source_df.iloc[i,4] + ")"
@@ -173,6 +179,7 @@ def convert(**kwargs):
             source_df.iloc[i,3] = 'double'
             source_df.iloc[i,4] = 'float'
             source_df.iloc[i,5] = 'decimal' + data_size # CHG_20210902
+            source_df.iloc[i,6] = 'Float'
             
             select_body = select_body + cast_prefix + col_name
             select_body = select_body + "' as "+ source_df.iloc[i,4] + ")"

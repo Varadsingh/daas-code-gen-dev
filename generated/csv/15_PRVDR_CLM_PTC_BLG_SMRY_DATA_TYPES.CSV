@@ -1,8 +1,8 @@
 Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
-PRVDR_NPI_NUM,char(10),CHAR(10),string,String,char(10),
-CLM_CNTRCT_PRVDR_NAME,varchar(100),VARCHAR(100),string,String,varchar(100),
-BENE_CNT,integer,INTEGER,int32,float,int8,
-CLM_CNT,integer,INTEGER,int32,float,int8,
-CLM_LINE_SRVC_UNIT_QTY_SUM,"decimal(18,4)",FLOAT,double,float,"decimal(18,4)",
-CLM_LINE_SBMT_CHRG_AMT_SUM,"decimal(18,2)",FLOAT,double,float,"decimal(18,2)",
-OPI_LOAD_TS,timestamp(6) not null,TIMESTAMP(6) NOT NULL,"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,
+PRVDR_NPI_NUM,char(10),CHAR(10),string,String,char(10),String
+CLM_CNTRCT_PRVDR_NAME,varchar(100),VARCHAR(100),string,String,varchar(100),String
+BENE_CNT,integer,INTEGER,int32,float,int8,Int
+CLM_CNT,integer,INTEGER,int32,float,int8,Int
+CLM_LINE_SRVC_UNIT_QTY_SUM,"decimal(18,4)",FLOAT,double,float,"decimal(18,4)",Float
+CLM_LINE_SBMT_CHRG_AMT_SUM,"decimal(18,2)",FLOAT,double,float,"decimal(18,2)",Float
+OPI_LOAD_TS,timestamp(6) not null,TIMESTAMP(6) NOT NULL,"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,String

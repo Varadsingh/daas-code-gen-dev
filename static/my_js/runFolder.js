@@ -72,7 +72,8 @@ $(document).ready(function() {
         var kafka = document.getElementById("kafka").value;
         var materialize = document.getElementById("materialize").value;
         var sandbox = document.getElementById("sandbox").value;
-
+		var run_status = document.getElementById("run_status");
+		
         var fd = new FormData();
 
         fd.append('matip', matip);
@@ -88,7 +89,8 @@ $(document).ready(function() {
 
 
         $("#upldBtn2").prop("disabled", true);
-
+		
+		var running_batch = 1
         $.ajax({
             type: "POST",
             enctype: 'multipart/form-data',
@@ -100,13 +102,52 @@ $(document).ready(function() {
             cache: false,
             timeout: 600000,
             success: function(response) {
-                alert(response.status);
+                // alert(response.status);
+				running_batch = -1;
                 $("#upldBtn2").prop("disabled", false);
             },
             error: function(e) {
                 console.log("ERROR : ", e);
+				running_batch = -1;
                 $("#upldBtn2").prop("disabled", false);
             }
         });
+		console.log(running_batch);
+		
+		var processed_file = 0;
+		var total_files = 0;
+		
+		while ( ( processed_file != total_files ) || ( processed_file == 0 && total_files == 0 )) {
+			$.ajax({
+				type: "POST",
+				enctype: 'multipart/form-data',
+				url: "http://localhost:8080/runStatus",
+				async: false,
+				data: fd,
+				dataType: 'json',
+				processData: false,
+				contentType: false,
+				cache: false,
+				timeout: 600000,
+				success: function(response) {
+					var myArr = response.status_count.split("/");
+					processed_file = myArr[0];
+					total_files = myArr[1];
+					console.log(processed_file);
+					console.log(total_files);
+					console.log(response.status);
+					run_status.innerHTML = "<pre>" + response.status + "</pre>"; // response.status
+				},
+				error: function(e) {
+					console.log("ERROR : ", e);
+					run_status.innerText = e
+				}
+			});
+		}
+		
+		if (processed_file == total_files ){
+			run_status.innerHTML = run_status.innerHTML + "<pre>" + " processing completed " + "</pre>"
+		}
+
     });
 });

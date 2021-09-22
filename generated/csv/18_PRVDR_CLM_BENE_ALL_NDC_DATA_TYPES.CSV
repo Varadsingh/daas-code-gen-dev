@@ -1,8 +1,8 @@
 Column Name,Data Type in Teradata Base Tables,Data Type in Teradata View,Data Type in Kafka Connect,Data Type in Materialize Server,Data Type in PostgreSQL Bridge DB,Data Type in Hasura GraphQL
-PRVDR_PRSCRBNG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific,VARCHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,string,String,varchar(10),
-BENE_SK,"decimal(18,0)",FLOAT,double,float,"decimal(18,0)",
-NDC_CNT,integer,INTEGER,int32,float,int8,
-DSTNCT_NDC_CNT,integer,INTEGER,int32,float,int8,
-CVRD_PD_AMT_SUM,"decimal(18,2)",FLOAT,double,float,"decimal(18,2)",
-PD_AMT_PER_NDC_CNT_AVG,"decimal(18,4)",FLOAT,double,float,"decimal(18,4)",
-OPI_LOAD_TS,timestamp(6),TIMESTAMP(6) NOT NULL,"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,
+PRVDR_PRSCRBNG_PRVDR_NPI_NUM,varchar(10) character set latin not casespecific,VARCHAR(10) CHARACTER SET LATIN NOT CASESPECIFIC,string,String,varchar(10),String
+BENE_SK,"decimal(18,0)",FLOAT,double,float,"decimal(18,0)",Float
+NDC_CNT,integer,INTEGER,int32,float,int8,Int
+DSTNCT_NDC_CNT,integer,INTEGER,int32,float,int8,Int
+CVRD_PD_AMT_SUM,"decimal(18,2)",FLOAT,double,float,"decimal(18,2)",Float
+PD_AMT_PER_NDC_CNT_AVG,"decimal(18,4)",FLOAT,double,float,"decimal(18,4)",Float
+OPI_LOAD_TS,timestamp(6),TIMESTAMP(6) NOT NULL,"""type"": ""int64"", ""name"": ""org.apache.kafka.connect.data.Timestamp""",float,timestamp,String
