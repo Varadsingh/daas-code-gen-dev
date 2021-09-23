@@ -74,6 +74,8 @@ $(document).ready(function() {
         var sandbox = document.getElementById("sandbox").value;
 		var run_status = document.getElementById("run_status");
 		
+		run_status.innerHTML = "<pre>" + " -- processing started -- " + "</pre>"; // response.status
+		
         var fd = new FormData();
 
         fd.append('matip', matip);

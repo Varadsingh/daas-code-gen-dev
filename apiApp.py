@@ -314,7 +314,18 @@ def runFolder():
         foldname = foldname
         os.environ['foldname'] = foldname
         dotenv.set_key(dotenv_file, 'foldname', os.environ['foldname'], quote_mode='always')
-
+    
+    main_dir = os.path.dirname(os.path.dirname(foldname))
+    run_status_file = main_dir + '\\generated\\run_status.txt'
+    f = open(run_status_file, 'w')
+    f.write('')
+    f.close()
+    
+    run_status_file_len = main_dir + '\\generated\\run_status_len.txt'
+    f = open(run_status_file_len, 'w')
+    f.write('0/0')
+    f.close()
+    
     bridge = request.form['bridge']
     if bridge == bridgePath:
         bridge = bridge   
